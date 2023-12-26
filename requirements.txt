@@ -6,4 +6,7 @@ jupyter
 notebook
 scikit-learn
 xgboost
+dill
+# pickle
+
 # catboost

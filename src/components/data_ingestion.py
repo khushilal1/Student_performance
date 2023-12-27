@@ -1,8 +1,8 @@
 import os
 import sys
 
-sys.path.append("E:\\machine_learning_project\\src")
-
+# sys.path.append("//src//components")
+sys.path.append(r"E:\\machine_learning_project\\")
 from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
@@ -11,6 +11,7 @@ from dataclasses import dataclass
 
 from src.components.data_transformation import DataTranformation
 from src.components.data_transformation import DataTransformationConfig
+from src.components.model_trainer import ModelTrainer
 
 
 @dataclass
@@ -61,8 +62,6 @@ class DataIngestion:
         except FileNotFoundError as e:
             logging.info(f"File not found: {str(e)}")
             raise CustomException(e, sys)
-        # except Exception as e:
-        #     raise CustomException(e, sys)
 
         except Exception as e:
             logging.info(f"Error during data ingestion: {str(e)}")
@@ -74,4 +73,9 @@ if __name__ == "__main__":
     train_data, test_data = obj.initiate_data_ingestion()
     data_tranformation = DataTranformation()
 
-    data_tranformation.initiate_data_transformation(train_data, test_data)
+    train_arr, test_arr, _ = data_tranformation.initiate_data_transformation(
+        train_data, test_data
+    )
+    # model trainer
+    model_tainer = ModelTrainer()
+    print(round(model_tainer.initiate_model_trainer(train_arr, test_arr),5)*100)

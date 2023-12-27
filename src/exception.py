@@ -1,8 +1,8 @@
 import sys
-from logger import logging
 
 
-sys.path.append('/machine_learning_project/src')
+sys.path.append('//src')
+from src.logger import logging
 
 
 def error_message_detail(error, error_detail:sys):
@@ -32,7 +32,7 @@ class CustomException(Exception):
 
 if __name__ == "__main__":
     try:
-        a = 1 / 0
+        a = 1 / 1
     except Exception as e:
         logging.info("Divide by zero ")
         raise CustomException(e, sys)

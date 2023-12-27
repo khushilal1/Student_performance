@@ -84,7 +84,7 @@ class DataTranformation:
             numerical_columns = ["writing_score", "reading_score"]
 
             input_feature_train_df = train_df.drop(columns=[target_column_name], axis=1)
-            target_feature_train_df = train_df[target_column_name]
+            target_feature_train_df = train_df[target_column_name].values
 
             input_feature_test_df = test_df.drop(columns=[target_column_name], axis=1)
             target_feature_test_df = test_df[target_column_name]
@@ -123,9 +123,3 @@ class DataTranformation:
             raise CustomException(e, sys)
 
 
-# if __name__ == "__main__":
-#     obj = DataTranformation()
-#     train_data, test_data = obj.get_data_transformer_object()
-
-#     data_transformation = DataTranformation()
-#     data_transformation.initiate_data_transformation(train_data, test_data)

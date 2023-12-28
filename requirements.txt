@@ -7,6 +7,8 @@ notebook
 scikit-learn
 xgboost
 dill
+flask
+flask_cors
 
 # pickle
 
